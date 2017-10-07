@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Website using Bootstrap</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script/script.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <img class="img-responsive" src="Images/kertas1-.jpg" width="50%" height="50%"/>
+        </div>
+        <div style="padding-top: 3%" class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Information</a></li>
+                <li><a href="#">Designs</a></li>
+                <li><a href="#">Customer care</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-top">
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Signin</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid text-center">
+    <div class="row content">
+        <div class="col-sm-2 sidenav">
+            <div style="width: 95%" class="styled-select maroon semi-square">
+                <select  id="time">
+                    <option style="width: 69%" value="1">opt interval</option>
+                    <option style="width: 69%" value="2">hourly</option>
+                    <option style="width: 69%" value="3">daily</option>
+                    <option style="width: 69%" value="4">weekly</option>
+                </select>
+            </div>
+            
+           <p>
+                <br>
+
+                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc(3)">
+                    Child <i class="fa fa-caret-down"></i>
+                </button>
+            <div id="demoAcc3" class="w3-hide w3-white w3-card-2">
+                <a href="#" class="w3-bar-item w3-button" onclick="displayDiv('kids-Category','male-Category','Female-Category')">PartyDressesDresses</a>
+                <a href="#" class="w3-bar-item w3-button">Regulars</a>
+                <a href="#" class="w3-bar-item w3-button">Accessories</a>
+            </div>
+            </p>
+            <p>
+                <br>
+
+                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc(4)">
+                    SeniorCitizens <i class="fa fa-caret-down"></i>
+                </button>
+            <div id="demoAcc4" class="w3-hide w3-white w3-card-2">
+                <a href="#" class="w3-bar-item w3-button">PartyDresses</a>
+                <a href="#" class="w3-bar-item w3-button">Regulars</a>
+                <a href="#" class="w3-bar-item w3-button">Accessories</a>
+            </div>
+
+            </p>
+			<p>
+                <br>
+                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc(1)">
+                    male <i class="fa fa-caret-down"></i>
+                </button>
+                <div id="demoAcc1" class="w3-hide w3-white w3-card-2">
+                    <a href="#" class="w3-bar-item w3-button" onclick="displayDiv('male-Category','Female-Category','kids-Category')">PartyDresses</a>
+                    <a href="#" class="w3-bar-item w3-button">Regulars</a>
+                    <a href="#" class="w3-bar-item w3-button">Accessories</a>
+                </div>
+
+            </p>
+			<p>
+                <br>
+
+                <button class="w3-button w3-block w3-left-align" onclick="myAccFunc(2)">
+                    Female <i class="fa fa-caret-down"></i>
+                </button>
+            <div id="demoAcc2" class="w3-hide w3-white w3-card-2">
+                <a href="#" class="w3-bar-item w3-button" onclick="displayDiv('Female-Category','kids-Category','male-Category')">PartyDressesDresses</a>
+                <a href="#" class="w3-bar-item w3-button">Regulars</a>
+                <a href="#" class="w3-bar-item w3-button">Accessories</a>
+            </div>
+
+            </p>
+        </div>
+		 
+            <p>
+        <div class="col-sm-8 text-left">
+            <div id="welcome">
+                <h3>Check out our online store</h3>
+                <hr>
+                <p> Opt the opt interval and categories to display the items to shop</p>
+                <p>Select the image to redirect to gap.com</p>
+            </div>
+            <div id="menu-categories">
+                <div id="male-Category" style="Background-color:skyblue">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p>Stylish-wear-wool-blazer</p>
+                           <a target="_blank" href="http://www.gap.com/browse/product.do?cid=1091901&pcid=5168&vid=1&pid=910166012">
+                               <img src="Images/malegap1.jpg" class="img-square" height="100" width="100" alt="Design">
+                           </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="well">
+                            <p>
+                                product details
+                                Smooth wool weave with chambray lining.
+                                Long sleeves.
+                                Lapel collar, button front.
+                                Front slant pockets.
+                                #910166
+
+                                fabric & care
+                                Outer: 60% Wool, 30% Polyester, 10% Other.
+                                Lining: 100% Cotton.
+                                Machine wash cold, reshape and dry flat.
+                                Imported.
+
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p> Softspun crewneck tee</p>
+                            <a target="_blank" href="http://www.gap.com/browse/product.do?cid=1093757&pcid=5225&vid=1&pid=852052052">
+                                <img src="Images/malegap2.jpg" class="img-square" height="100" width="100" alt="Design">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="well">
+                            <p>
+                                product details
+                                Lighter than a sweater. Heavier than a tee. Ready to layer.
+								Versatile and made for layering.
+								Supersoft jersey knit.
+								Short sleeves.
+								Crewneck.
+								Vents at hem.
+								#852052
+
+								fabric & care
+								80% Cotton, 20% Polyester.
+								Machine wash.
+								Imported.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p>Vintage wash skinny fit khakis (stretch)</p>
+                            <a target="_blank" href="http://www.gap.com/browse/product.do?cid=1093762&pcid=80799&vid=1&pid=844261042">
+                                <img src="Images/malegap3.jpg" class="img-square" height="100" width="100" alt="Design">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="well">
+                            <p>
+                                product details
+								Smooth, vintage wash twill, with stretch.
+								Button closure, zip fly.
+								Front slant and coin pockets, back welt pockets.
+								#844261
+
+								fabric & care
+								98% Cotton, 2% Lycra.
+								Machine wash.
+								Imported.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			<div id="kids-Category" style="Background-color:brown">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p>Short sleeve pique polo</p>
+                           <a target="_blank" href="http://www.gap.com/browse/product.do?cid=1060993&pcid=1060990&vid=1&pid=232418022">
+                               <img src="Images/kidgap1.jpg" class="img-square" height="100" width="100" alt="Design">
+                           </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="well">
+                            <p>
+                                product details
+								Back to cool. Everything you need for A+ style Monday to Friday.
+								Cotton pique knit.
+								Short sleeves.
+								Flat, rib-knit collar.
+								Polo placket.
+								Straight hem, side vents.
+								#232418
+
+								fabric & care
+								100% Cotton.
+								Machine wash.
+								Imported.		
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p> GapKids | Disney Mickey Mouse and Minnie Mouse hi-lo tee</p>
+                            <a target="_blank" href="http://www.gap.com/browse/product.do?cid=1087680&pcid=14417&vid=1&pid=850261022">
+                                <img src="Images/kidgap2.jpg" class="img-square" height="100" width="100" alt="Design">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="well">
+                            <p>
+                                product details
+A very special collaboration between Gap and Disney—two timeless, iconic American brands— led us to create a collection that celebrates Mickey Mouse and Minnie Mouse.
+Soft cotton jersey.
+Long sleeves.
+Banded round neckline.
+Graphic patch applique at front.
+Curved hem is longer at back, side vent.
+Allover polka dots.
+#850261
+
+fabric & care
+100% Cotton.
+Machine wash.
+Imported.
+
+shipping & returns
+Shipping
+FREE on orders of $50 or more 
+Select the 'FREE' (5-7 business days) option
+$7 flat rate for orders under $50
+Returns
+FREE returns and exchanges on all orders
+No returns or exchanges on final sale items
+By mail: prepaid UPS label or USPS label
+In store: with invoice and card used for purchase
+								
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="well">
+                            <p>GapKids | Disney Mickey Mouse and Minnie Mouse soft terry leggings</p>
+                            <a target="_blank" href="http://www.gap.com/browse/product.do?pid=865361022&rrec=true&mlink=5050,12413545,gapproduct2_rr_5&clink=12413545">
+                                <img src="Images/kidgap3.jpg" class="img-square" height="100" width="100" alt="Design">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="well">
+                            <p>
+                               product details
+A very special collaboration between Gap and Disney—two timeless, iconic American brands— led us to create a collection that celebrates Mickey Mouse and Minnie Mouse.
+Supersoft French terry.
+Comfy, elasticized waistband.
+Screen-printed graphic with foil embellishment at front.
+Allover polka dots.
+#865361
+
+fabric & care
+96% Cotton, 4% Lycra.
+Machine wash, delicate cycle.
+Imported.
+
+shipping & returns
+Shipping
+FREE on orders of $50 or more 
+Select the 'FREE' (5-7 business days) option
+$7 flat rate for orders under $50
+Returns
+FREE returns and exchanges on all orders
+No returns or exchanges on final sale items
+By mail: prepaid UPS label or USPS label
+In store: with invoice and card used for purchase
+Learn More
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+                <div id="Female-Category" style="Background-color:pink">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <p>Softspun bell-sleeve top </p>
+                                <a target="_blank" href="http://www.gap.com/browse/product.do?cid=17082&pcid=17076&vid=1&pid=129077022">
+                                    <img src="Images/femalegap1.jpg" class="img-square" height="100" width="100" alt="Design">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="well">
+                                <p style="Background-color:pink" >
+                                    "product details":
+									The perfect blend of airy and plush. Versatile and made for layering.
+									Supersoft marled jersey knit.
+									Elbow-length bell sleeves.
+									Boatneck.
+									#129077
+
+									"fabric & care":
+									48% Polyester, 48% Rayon, 4% Spandex.
+									Machine wash.
+									Imported.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <p>Supersoft colorblock swing dress </p>
+                                <a target="_blank" href="http://www.gap.com/browse/product.do?cid=1077120&pcid=13658&vid=1&pid=113909012">
+                                    <img src="Images/femalegap2.jpg" class="img-square" height="100" width="100" alt="Design">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="well">
+                                <p style="Background-color:pink">
+                                   product details
+								   The perfect blend of airy and plush.
+								   Supersoft marled jersey knit.
+								   Long sleeves with side vents.
+								   Round neckline.
+								   Allover colorblock detailing.
+								   #113909
+
+								   fabric & care
+								   47% Polyester, 47% Rayon, 6% Spandex.
+                                   Machine wash.
+                                   Imported.
+
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="well">
+                                <p>Floral swing skirt </p>
+                                <a target="_blank" href="http://www.gap.com/browse/product.do?cid=1082574&pcid=1082574&vid=1&pid=100256002">
+                                    <img src="Images/femalegap3.jpg" class="img-square" height="100" width="100" alt="Design">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="well">
+                                <p style="Background-color:pink">
+                                    product details
+									Smooth weave.
+									Invisible zip, hook and eye closure.
+									Curved hem.
+									Allover floral print.
+									#100256
+
+									fabric & care
+									100% Rayon.
+									Machine wash.
+									Imported.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+</body>
+</html>
