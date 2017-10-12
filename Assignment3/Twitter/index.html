@@ -1,0 +1,98 @@
+<html>
+  <head><style>
+  img {
+    width:100%;
+};
+  p {
+    border: 1px solid black;
+    outline-color:red;
+}
+p.solid {outline-style: solid;}
+</style>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="gistfile1.js"></script>
+  </head>
+  <body style="background-color:skyblue;">
+  <!-- RGB Value
+
+In HTML, a color can be specified as an RGB value, using this formula:
+
+rgb(red, green, blue)
+
+Each parameter (red, green, and blue) defines the intensity of the color between 0 and 255.
+
+For example, rgb(255, 0, 0) is displayed as red, because red is set to its highest value (255) and the others are set to 0.
+
+To display the color black, all color parameters must be set to 0, like this: rgb(0, 0, 0).
+
+To display the color white, all color parameters must be set to 255, like this: rgb(255, 255, 255).  -->
+<p class="dashed"><h1>This is Twitter Friendslist of an  account</h1></p><!-- Outline Color
+
+The outline-color property is used to set the color of the outline.
+
+The color can be set by:
+
+    name - specify a color name, like "red"
+    RGB - specify a RGB value, like "rgb(255,0,0)"
+    Hex - specify a hex value, like "#ff0000"
+    invert - performs a color inversion (which ensures that the outline is visible, regardless of color background) -->
+	<img src="twitter.png" alt="twitter Icon" style="width:128px;height:128px;">
+	<!-- Twitter (/ˈtwɪtər/) is an online news and social networking service where users post and interact with messages, "tweets", restricted to 140 characters. Registered users can post tweets, but those who are unregistered can only read them. Users access Twitter through its website interface, SMS or a mobile device app.[10] Twitter Inc. is based in San Francisco, California, United States, and has more than 25 offices around the world.[11]  -->
+
+	<p class="solid"><script>
+	  var data = []
+
+	  var h = 540, w = 1080
+	  
+	  var vis = d3.select("body")
+	  .append("svg:svg")
+	  .attr("width", w)
+	  .attr("height", h)
+
+	  xy = d3
+	  .geo
+	  .equirectangular()
+	  .scale(150)
+	  .translate([w/2, h/2])
+	  
+	  path = d3
+	  .geo
+	  .path()
+	  .projection(xy)
+
+	  countries = vis
+	  .append('svg:g')
+	  .attr('id', 'countries')
+
+	  countries.selectAll('path')
+	  .data(countries_data.features) 
+	  .enter()
+	  .append('svg:path')
+	  .attr('d', path)
+	  .attr('fill', 'rgba(255,99,71,0.2)')
+	  .attr('stroke-width', 1);
+
+	  d3.geo.path()
+
+	  d3.csv("friend1.csv", function(parsedRows) {
+		data = parsedRows
+		for (i = 0; i < data.length; i++) {
+		  var mapCoords = this.xy([data[i].long, data[i].lat])
+		  data[i].lat = mapCoords[0]
+		  data[i].long = mapCoords[1]
+		}
+
+		vis.selectAll("circle")
+		.data(data)
+		.enter().append("svg:circle")
+		.attr("cx", function(d) { return d.lat })
+		.attr("cy", function(d) { return d.long })
+		.attr("stroke-width", "none")
+		.attr("fill", function() { return "rgb(120,180,0)" })
+		.attr("fill-opacity", .5)
+		.attr("r", function() { return 3 })
+	  })
+
+	</script></p>
+  </body>
+</html>
