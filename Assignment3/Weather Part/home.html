@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="" data-ng-app="Direction">
+<head>
+    <meta t="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js" type="application/javascript"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIPIKVULg06gzKIYipDIj0UVdNX37yeQg&v=3.exp&sensor=true"></script>
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        #map-canvas {
+            width: 800px;
+            height: 800px;
+        }
+
+
+
+        .weatherModule {
+            background: cadetblue;
+            height:200px;
+            width:300px;
+            float: inherit;
+            border: 1px dashed #ccc;
+            padding: 1em;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="wrapp" ng-controller="googlemapoutput">
+    <form class="wrap">
+    <div class="row">
+        <input type="text" placeholder="enter start location" ng-model="startlocation" id="startlocation" autocomplete="on"/>
+        <input type="text" placeholder="enter End location" ng-model="endlocation" id="endlocation" autocomplete="on"/>
+        <button id="btn" ng-click="calcRoute()">
+            Get Direction
+        </button>
+        <br/></br>
+    </div>
+    </form>
+
+    <div class="weatherModule">
+        <center><label><h3>Weather</h3></label></center>
+        <p class="currentConditions" ng-bind-html-unsafe="currentweather.html" ></p>
+        <br>
+        <div class="currentIcon" ng-bind-html-unsafe="currentIcon.html"></div>
+
+
+        <button id="weather1" ng-click="Weather1()">
+            Start Location Weather
+        </button>
+        <br>
+        <button id="weather2" ng-click="Weather2()">
+            End Location Weather
+        </button >
+    </div>
+
+
+
+
+    <br/><br/>
+    <div id="map-canvas" style="height: 400px"></div>
+</div>
+</body>
+</html>
+
+
+<script>
+    angular.module('Direction', [])
+        .controller('googlemapoutput', function ($scope) {
+
+            var map;
+            var mapOptions;
+            var directionsDisplay = new google.maps.DirectionsRenderer({
+                draggable: true
+            });
+            var directionsService = new google.maps.DirectionsService();
+
+            $scope.initialize = function () {
+                var pos = new google.maps.LatLng(0, 0);
+                var mapOptions = {
+                    zoom: 3,
+                    center: pos
+                };
+
+                map = new google.maps.Map(document.getElementById('map-canvas'),
+                    mapOptions);
+
+                new google.maps.places.Autocomplete(
+                    (document.getElementById('startlocation')), {
+                        types: ['geocode']
+                    });
+
+                new google.maps.places.Autocomplete(
+                    (document.getElementById('endlocation')), {
+                        types: ['geocode']
+                    });
+
+
+
+            };
+            $scope.calcRoute = function () {
+                var end = document.getElementById('endlocation').value;
+                var start = document.getElementById('startlocation').value;
+
+                var request = {
+                    origin: start,
+                    destination: end,
+                    travelMode: google.maps.TravelMode.DRIVING
+                };
+
+                directionsService.route(request, function (response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setMap(map);
+                        directionsDisplay.setDirections(response);
+                        console.log(status);
+                    }
+
+                });
+            };
+
+            $scope.Weather1 = function() {
+                var start = document.getElementById("startlocation").value.toString();
+                $http.get('http://api.wunderground.com/api/5f2d268c33a07857/conditions/q/'+start+'.json').success(function(sourcedata){
+                    console.log(sourcedata);
+                    sourcetemp = sourcedata.current_observation.temp_f;
+                    sourceicon = sourcedata.current_observation.icon_url;
+                    sourceweather = sourcedata.current_observation.weather;
+                    console.log(sourcetemp);
+                    $scope.currentweather= $sce.trustAsHtml("<p><b>At "+start+"</b><br>Currently "+sourcetemp+ "&deg; F and "+ sourceweather+"</p>");
+                    $scope.currentIcon=$sce.trustAsHtml("<img src='" + sourceicon  +"'/><br>");
+                })
+            };
+            $scope.Weather2 = function() {
+
+                var end = document.getElementById("endlocation").value.toString();
+
+                $http.get(   'http://api.wunderground.com/api/36b799dc821d5836/conditions/q/'+end+'.json').success(function(destinationdata){
+                    console.log(destinationdata);
+                    temp2 = destinationdata.current_observation.temp_f;
+                    icon2 = destinationdata.current_observation.icon_url;
+                    weather2 = destinationdata.current_observation.weather;
+                    console.log(temp2);
+                    $scope.currentweather = $sce.trustAsHtml("<p><b>At "+ end +"</b><br>Currently " +temp2 +" &deg; F and " + weather2 + "</p>")
+                    $scope.currentIcon= $sce.trustAsHtml("<img src='" + icon2  +"'/>")
+                });
+            };
+
+
+
+            google.maps.event.addDomListener(window, 'load', $scope.initialize);
+
+        });
+
+
+
+</script>
