@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+        <div class="container">
+                <center><h1>  HTML DOM allows JavaScript to react to HTML events:</h1></center><br>
+               <center> <i>An HTML event can be something the browser does, or something a user does.</i></center>
+            <div class="row col-lg-12">
+                    <div class="dropdown outers" class="col-lg-4" >
+                       <b> <i>onclick event eg1</i></b>
+                            <h2>Clickable Dropdown</h2>
+                          <p>Click on the button to open the dropdown menu.</p>
+                          <button id="myBtn" class="dropbtn">Dropdown</button>
+                         <div id="myDropdown" class="dropdown-content">
+                            <a href="#home"z>Home</a>
+                            <a href="#about">About</a>
+                             <a href="#contact">Contact</a>
+                              </div>
+                     </div>
+                    <div class="col-lg-4 outers">
+                        <!-- for eg we use onload and onunload to download or opening a popup -->
+                          <b>  <i>The onload and onunload events are triggered when the user enters or leaves the page</i></b>
+                                <body onload="checkCookies()">
+
+                                <p id="demo"></p>
+                    </div>
+                    <div  class="col-lg-4 outers">
+                        <!-- the onchange event is often used in combination with validation of input fields. -->
+                               <b><i>onchange,onblur and onfocus events</i></b>
+                            Enter your name: <input class="outers" type="text" id="fname" onblur="myFunction4(this)" onfocus="myFunction3(this)" onchange="myFunction2()">
+                      </div>
+                      
+             </div>
+               <div class="row col-lg-12">
+                    <div class="col-lg-4 outers">
+                            <b><i>mouse over and mouseourt events</i></b>
+                      <div  onmouseover="mOver(this)" onmouseout="mOut(this)" 
+                      style="background-color:rgb(83, 217, 56);padding:40px;">
+                      <b><i>mouse over and mouse out</i> </b>       
+                      <p>Hello</p>
+                       </div>
+                      </div>
+                      <div class="col-lg-4 outers">
+                                           <i>mousedown ,mouseup events</i>
+                       <div   onmousedown="mDown(this)" onmouseup="mUp(this)"
+                            style="background-color:rgb(195, 217, 2);padding:40px;">
+                                                 Click Me>
+                             </div>
+                         </div>
+                       <div class="col-lg-4 outers">
+                           <b><i>Event listeners eg</i></b>
+                           <button id="myBtn1">Try it</button>
+
+                             <p id="demo2"></p>
+                         </div>
+            </div>
+  
+         </div>
+
+<script>
+// Get the button, and when the user clicks on it, execute myFunction
+document.getElementById("myBtn").onclick = function() {myFunction()};
+
+/* myFunction toggles between adding and removing the show class, which is used to hide and show the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+function checkCookies() {
+    var text = "";
+    if (navigator.cookieEnabled == true) {
+        text = "Cookies are enabled.";
+    } else {
+        text = "Cookies are not enabled.";
+    }
+    document.getElementById("demo").innerHTML = text;
+}
+function myFunction2() {
+    var x = document.getElementById("fname");
+    x.value = x.value.toUpperCase();
+}
+//on mouse over and mouse leave
+function mOver(obj) {
+    obj.innerHTML = "getout"
+}
+
+function mOut(obj) {
+    obj.innerHTML = "come"
+}
+//onmousedown and onmouseup
+function mDown(obj) {
+    obj.style.backgroundColor = "blue";
+    obj.innerHTML = "enough stress";
+}
+
+function mUp(obj) {
+    obj.style.backgroundColor="#D94A38";
+    obj.innerHTML="Thank You";
+}
+//onfocus
+function myFunction3(x) {
+    x.style.background = "lightgrey";
+}
+//onblur
+function myFunction4(x) {
+    x.style.background = "lightblue";
+}
+//evenlisteners
+document.getElementById("myBtn1").addEventListener("click", displayDate);
+
+function displayDate() {
+    document.getElementById("demo2").innerHTML = Date();
+}
+/*"The W3C Document Object Model (DOM) is a platform and language-neutral interface
+   that allows programs and scripts to dynamically access and update the content,
+    structure, and style of a document.*/
+</script>
+
+
+</body>
+</html>
